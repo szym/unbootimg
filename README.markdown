@@ -41,7 +41,7 @@ Android.mk to include unbootimg.
 - Put `mydroid/repo/out/host/linux-x86/bin` in your path. Easiest way to do this
 is:
 
-    setpaths  # this is defined by Android build system `. build/envsetup.sh`
+    setpaths  # this is defined by Android build system: . build/envsetup.sh
 
 unbootimg depends (like mkbootimg) on libmincrypt for computing the SHA1, but
 this can easily be disabled in the source code.
