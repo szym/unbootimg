@@ -15,7 +15,7 @@ set -e
 IMG=$1
 
 ${UNBOOTIMG} ${IMG}
-mkdir ${IMG}-ramdisk
+mkdir -p ${IMG}-ramdisk
 cd ${IMG}-ramdisk
 gunzip -c ../${IMG}-ramdisk.cpio.gz | cpio -i
 cd ..
