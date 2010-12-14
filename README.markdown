@@ -27,7 +27,7 @@ Building
 If you already have the AOSP repo and managed to build mkbootimg, adding
 unbootimg is easy.
 
-- Download the unbootimg source.
+- Download the [unbootimg source](https://github.com/szym/unbootimg/zipball/master)
 - Unpack it to your `mydroid/repo/system/core/mkbootimg`. Note: it overwrites
 Android.mk to include unbootimg.
 - Build it:
