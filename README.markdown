@@ -27,8 +27,8 @@ Building
 If you already have the AOSP repo and managed to build mkbootimg, adding
 unbootimg is easy.
 
-- Download unbootimg.zip
-- Unpack it to your mydroid/repo/system/core/mkbootimg. Note: it overwrites
+- Download the unbootimg source.
+- Unpack it to your `mydroid/repo/system/core/mkbootimg`. Note: it overwrites
 Android.mk to include unbootimg.
 - Build it:
     cd mydroid/repo
@@ -42,9 +42,6 @@ is:
 
 unbootimg depends (like mkbootimg) on libmincrypt for computing the SHA1, but
 this can easily be disabled in the source code.
-
-If you'd rather use pre-built binaries, here's a package with both unbootimg and
-mkbootimg: unbootimg-bin.zip
 
 Usage
 -----
