@@ -32,16 +32,16 @@ unbootimg is easy.
 Android.mk to include unbootimg.
 - Build it:
 
-    cd mydroid/repo
-    . build/envsetup.sh
-    make mkbootimg unbootimg
-    # sadly that can't install unpack.sh and repack.sh so we need:
-    mmm system/core/mkbootimg
+        cd mydroid/repo
+        . build/envsetup.sh
+        make mkbootimg unbootimg
+        # sadly that can't install unpack.sh and repack.sh so we need:
+        mmm system/core/mkbootimg
 
 - Put `mydroid/repo/out/host/linux-x86/bin` in your path. Easiest way to do this
 is:
 
-    setpaths  # this is defined by Android build system: . build/envsetup.sh
+        setpaths  # this is defined by Android build system: . build/envsetup.sh
 
 unbootimg depends (like mkbootimg) on libmincrypt for computing the SHA1, but
 this can easily be disabled in the source code.
