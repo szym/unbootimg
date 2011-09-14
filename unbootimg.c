@@ -99,7 +99,8 @@ int main(int argc, char **argv)
     }
 
     if (hdr->page_size != pagesize) {
-        fprintf(stderr,"WARNING: non-standard page_size!\n");
+        if (hdr->page_size != 4096)
+            fprintf(stderr,"WARNING: non-standard page_size!\n");
         pagesize = hdr->page_size;
     }
 
@@ -150,11 +151,11 @@ int main(int argc, char **argv)
         fprintf(stderr,"could not open %s for writing", buf);
         return 1;
     }
-    fprintf(fout, "--output %s --kernel %s-kernel --ramdisk %s%s %s %s%s --cmdline '%s' --board '%s' --base %x",
+    fprintf(fout, "--output %s --kernel %s-kernel --ramdisk %s%s %s %s%s --cmdline '%s' --board '%s' --base %x --pagesize %d",
       bootimg, bootimg,
       hdr->ramdisk_size ? bootimg : "NONE", hdr->ramdisk_size ? "-ramdisk.cpio.gz" : "",
       hdr->second_size ? "--second" : "", hdr->second_size ? bootimg : "", hdr->second_size ? "-second" : "",
-      cmdline, board, base);
+      cmdline, board, base, pagesize);
     fclose(fout);
 
     sprintf(buf, "%s-kernel", bootimg);
