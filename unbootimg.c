@@ -99,7 +99,8 @@ int main(int argc, char **argv)
     }
 
     if (hdr->page_size != pagesize) {
-        fprintf(stderr,"WARNING: non-standard page_size!\n");
+        if (hdr->page_size != 4096)
+            fprintf(stderr,"WARNING: non-standard page_size!\n");
         pagesize = hdr->page_size;
     }
 
