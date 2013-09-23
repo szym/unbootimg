@@ -151,11 +151,12 @@ int main(int argc, char **argv)
         fprintf(stderr,"could not open %s for writing", buf);
         return 1;
     }
-    fprintf(fout, "--output %s --kernel %s-kernel --ramdisk %s%s %s %s%s --cmdline '%s' --board '%s' --base %x --pagesize %d",
+    fprintf(fout, "--output %s --kernel %s-kernel --ramdisk %s%s %s %s%s --cmdline '%s' --board '%s' --base %x --pagesize %d"
+      " --ramdisk_offset %x --second_offset %x --tags_offset %x",
       bootimg, bootimg,
       hdr->ramdisk_size ? bootimg : "NONE", hdr->ramdisk_size ? "-ramdisk.cpio.gz" : "",
       hdr->second_size ? "--second" : "", hdr->second_size ? bootimg : "", hdr->second_size ? "-second" : "",
-      cmdline, board, base, pagesize);
+      cmdline, board, base, pagesize, hdr->ramdisk_addr - base, hdr->second_addr - base, hdr->tags_addr - base);
     fclose(fout);
 
     sprintf(buf, "%s-kernel", bootimg);
